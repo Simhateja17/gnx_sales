@@ -145,6 +145,8 @@ body::after { content:''; position:fixed; top:-20%; left:50%; transform:translat
 
 /* ── CARDS ── */
 .card { background:var(--surface); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+.table-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.table-scroll .data-table { min-width:760px; }
 .card-head { padding:16px 20px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
 .card-title { font-family:'Space Mono',monospace; font-size:10px; color:var(--green); letter-spacing:1.5px; text-transform:uppercase; display:flex; align-items:center; gap:8px; }
 .card-action { font-family:'Space Mono',monospace; font-size:10px; color:var(--green); cursor:pointer; text-transform:uppercase; letter-spacing:0.5px; }
@@ -530,6 +532,189 @@ input[type=range]::-webkit-slider-thumb { appearance:none; width:18px; height:18
   .dash-topbar { flex-direction:column; gap:14px; }
   .page-actions { flex-wrap:wrap; }
   .dash-topbar .page-actions { width:100%; }
+  .welcome-inner,
+  .sum-header,
+  .sum-box,
+  .sum-actions,
+  .ob-card,
+  .dash-grid,
+  .meetings-grid,
+  .billing-grid,
+  .team-grid,
+  .analytics-grid,
+  .analytics-grid-3,
+  .settings-grid {
+    width:100%;
+    max-width:none;
+  }
+  .welcome-h1 { font-size:clamp(34px,12vw,48px); }
+  .welcome-sub { max-width:none; }
+  .welcome-stats,
+  .kpi-row,
+  .analytics-grid,
+  .analytics-grid-3 {
+    grid-template-columns:1fr;
+  }
+  .table-scroll { overflow:visible; }
+  .table-scroll .data-table { min-width:0; }
+  .data-table,
+  .data-table thead,
+  .data-table tbody,
+  .data-table tr,
+  .data-table th,
+  .data-table td {
+    display:block;
+    width:100%;
+  }
+  .data-table thead { display:none; }
+  .data-table tr {
+    border-bottom:1px solid var(--border);
+    padding:12px 16px;
+    background:var(--surface);
+  }
+  .data-table tr:last-child { border-bottom:none; }
+  .data-table td {
+    border:none;
+    padding:7px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+  #page-dashboard .data-table td:nth-child(2)::before { content:'Name'; }
+  #page-dashboard .data-table td:nth-child(3)::before { content:'Title'; }
+  #page-dashboard .data-table td:nth-child(4)::before { content:'Company'; }
+  #page-dashboard .data-table td:nth-child(5)::before { content:'Status'; }
+  #page-leads .data-table td:nth-child(2)::before { content:'Name'; }
+  #page-leads .data-table td:nth-child(3)::before { content:'Title'; }
+  #page-leads .data-table td:nth-child(4)::before { content:'Company'; }
+  #page-leads .data-table td:nth-child(5)::before { content:'Region'; }
+  #page-leads .data-table td:nth-child(6)::before { content:'Est. ARR'; }
+  #page-leads .data-table td:nth-child(7)::before { content:'Status'; }
+  #page-leads .data-table td:nth-child(8)::before { content:'Last Contact'; }
+  #page-leads .data-table td:nth-child(9)::before { content:''; }
+  #page-team .data-table td:nth-child(1)::before { content:'Member'; }
+  #page-team .data-table td:nth-child(2)::before { content:'Role'; }
+  #page-team .data-table td:nth-child(3)::before { content:'Status'; }
+  #page-team .data-table td:nth-child(4)::before { content:'Permissions'; }
+  #page-team .data-table td:nth-child(5)::before { content:'Last Active'; }
+  #page-team .data-table td:nth-child(6)::before { content:''; }
+  .data-table td::before {
+    content:'';
+    font-family:'Space Mono',monospace;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--text-dim);
+    flex:0 0 42%;
+  }
+  .data-table td > * { margin-left:auto; }
+  .data-table td:first-child::before { content:''; }
+  .data-table td:first-child { justify-content:flex-start; }
+  .data-table td:first-child > * { margin-left:0; }
+  .data-table td:last-child { justify-content:flex-end; }
+  .data-table td:last-child::before { content:''; }
+  .data-table td:last-child > * { margin-left:0; }
+  .data-table .lead-name-cell { text-align:right; }
+  .data-table .lead-name-cell .ln,
+  .data-table .lead-name-cell .lc { display:block; }
+  .data-table .lead-name-cell .lc { text-align:right; }
+  .data-table .permissions-list { justify-content:flex-end; }
+  .data-table .member-row td { vertical-align:initial; }
+  .data-table .member-row td > div { justify-content:flex-end; width:100%; }
+  .ob-header,
+  .ob-card-top,
+  .ob-card-body,
+  .ob-nav,
+  .sum-panel,
+  .chart-wrap,
+  .donut-wrap,
+  .line-chart,
+  .settings-panel,
+  .plan-card,
+  .upgrade-card,
+  .invite-card {
+    padding-left:16px;
+    padding-right:16px;
+  }
+  .ob-card-top { padding-top:24px; padding-bottom:18px; }
+  .ob-card-body { padding-top:20px; padding-bottom:20px; }
+  .choice-grid,
+  .voice-grid,
+  .role-select-grid,
+  .ss-grid {
+    grid-template-columns:1fr;
+  }
+  .sum-actions,
+  .ob-nav,
+  .page-actions,
+  .leads-toolbar {
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .sum-actions > *,
+  .ob-nav > *,
+  .page-actions > *,
+  .leads-toolbar > * {
+    width:100%;
+  }
+  .leads-toolbar .search-bar { max-width:none; }
+  .leads-toolbar > div:last-child { margin-left:0 !important; width:100%; display:flex; flex-wrap:wrap; }
+  .leads-toolbar .chip { flex:1 1 auto; text-align:center; }
+  .title-tag { align-self:flex-start; }
+  .call-card,
+  .mini-table-row,
+  .invoice-row,
+  .toggle-switch {
+    flex-wrap:wrap;
+    align-items:flex-start;
+  }
+  .call-right,
+  .mtr-time { text-align:left; }
+  .call-card > div:last-child,
+  .invoice-row > div:last-child {
+    width:100%;
+    justify-content:space-between;
+    flex-wrap:wrap;
+  }
+  .call-card,
+  .meeting-item,
+  .mini-table-row,
+  .invoice-row,
+  .plan-card,
+  .upgrade-card,
+  .invite-card,
+  .card,
+  .settings-panel,
+  .ob-card,
+  .sum-box {
+    border-radius:12px;
+  }
+  .call-card {
+    gap:12px;
+  }
+  .call-card > div:last-child {
+    padding-top:4px;
+  }
+  .meeting-item {
+    padding:12px 14px;
+  }
+  .invoice-row,
+  .mini-table-row {
+    padding:12px 14px;
+  }
+  .page-title { font-size:22px; }
+  .page-sub { letter-spacing:0.7px; }
+  .settings-grid { grid-template-columns:1fr; }
+  .settings-nav { display:flex; overflow-x:auto; white-space:nowrap; }
+  .snav-item { border-bottom:none; border-right:1px solid var(--border); flex:0 0 auto; }
+  .snav-item.active { border-left:none; border-bottom:2px solid var(--green); }
+  .period-tabs { flex-wrap:wrap; }
+  .donut-wrap { flex-direction:column; align-items:flex-start; }
+  .sum-panel.active { padding:20px 16px; }
+  .prompt-panel { max-height:none; }
+  .data-table th,
+  .data-table td { padding:10px 12px; }
 }
 </style>
 </head>
@@ -714,6 +899,7 @@ input[type=range]::-webkit-slider-thumb { appearance:none; width:18px; height:18
         <div class="filters">
           <div class="chip active">All (214)</div><div class="chip">CEO/Founder (72)</div><div class="chip">VP (68)</div><div class="chip">ARR $1M+</div>
         </div>
+        <div class="table-scroll">
         <table class="data-table">
           <thead><tr><th style="width:32px"></th><th>Name</th><th>Title</th><th>Company</th><th>Status</th></tr></thead>
           <tbody>
@@ -724,6 +910,7 @@ input[type=range]::-webkit-slider-thumb { appearance:none; width:18px; height:18
             <tr><td><input type="checkbox" class="cb" checked></td><td><div class="lead-name-cell"><div class="ln">Kevin O'Brien</div><div class="lc">TOR · CLEARPATH</div></div></td><td><span class="title-tag">CEO</span></td><td>Clearpath Canada</td><td><span class="badge interested"><span class="badge-dot"></span>Interested</span></td></tr>
           </tbody>
         </table>
+        </div>
         <div style="padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)">
           <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px">3 selected</span>
           <button class="btn-green" style="padding:8px 16px;font-size:12px">📞 Call Selected</button>
@@ -772,6 +959,7 @@ input[type=range]::-webkit-slider-thumb { appearance:none; width:18px; height:18
       </div>
     </div>
     <div class="card" style="margin-top:0">
+      <div class="table-scroll">
       <table class="data-table">
         <thead><tr><th style="width:32px"></th><th>Name</th><th>Title</th><th>Company</th><th>Region</th><th>Est. ARR</th><th>Status</th><th>Last Contact</th><th></th></tr></thead>
         <tbody>
@@ -784,6 +972,7 @@ input[type=range]::-webkit-slider-thumb { appearance:none; width:18px; height:18
           <tr><td><input type="checkbox" class="cb"></td><td><div class="lead-name-cell"><div class="ln">Lisa Wang</div><div class="lc">lwang@pivothq.com</div></div></td><td><span class="title-tag">VP SALES</span></td><td>Pivot HQ</td><td>Austin, TX</td><td style="font-family:'Space Mono',monospace;font-size:11px;color:var(--green)">$1.2M</td><td><span class="badge new"><span class="badge-dot"></span>New</span></td><td style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text-dim)">—</td><td><button class="btn-ghost" style="padding:5px 12px;font-size:11px">View</button></td></tr>
         </tbody>
       </table>
+      </div>
       <div style="padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)">
         <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text-dim)">Showing 7 of 1,204 leads</span>
         <div style="display:flex;gap:6px">
@@ -1054,6 +1243,7 @@ input[type=range]::-webkit-slider-thumb { appearance:none; width:18px; height:18
       <div>
         <div class="card">
           <div class="card-head"><div class="card-title">Team Members</div><span class="card-action">Manage Roles</span></div>
+          <div class="table-scroll">
           <table class="data-table">
             <thead><tr><th>Member</th><th>Role</th><th>Status</th><th>Permissions</th><th>Last Active</th><th></th></tr></thead>
             <tbody>
@@ -1083,6 +1273,7 @@ input[type=range]::-webkit-slider-thumb { appearance:none; width:18px; height:18
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
       <div class="invite-card">
